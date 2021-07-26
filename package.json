@@ -4,7 +4,8 @@
   "description": "Arknight Game Announcements Tracker",
   "main": "app.js",
   "scripts": {
-    "test": "supervisor start app.js"
+    "test": "supervisor start app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

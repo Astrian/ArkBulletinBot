@@ -69,7 +69,7 @@ async function refresh() {
           parse_mode: 'MarkdownV2'
         }
       )
-      // await func.dbwrite({announceId: list[i].announceId})
+      await func.dbwrite({announceId: list[i].announceId})
     }
   }
 }
@@ -102,7 +102,7 @@ function domToNode(domNode) {
   return nodeElement;
 }
 
-/* async function scheduleTask() {
+async function scheduleTask() {
   let rule = new schedule.RecurrenceRule()
   rule.minute = [0, 15, 30, 45]
 
@@ -111,4 +111,4 @@ function domToNode(domNode) {
   })
 }
 
-scheduleTask() */
+scheduleTask()

@@ -51,8 +51,8 @@ async function refresh() {
         }
       }
       let content = $('.content').get(0) ? $('.content').get(0) : $('.cover').get(0)
-      console.log(content)
       content = domToNode(content).children
+      content[content.length] = {"tag":"p","children":[{"tag": "a", "attrs": { "href": list[i].webUrl }, "children": ["查看原公告"]}]}
       console.log(content)
       let data = ``
       data += `access_token=${process.env.ARK_TGPHTOKEN}&`

@@ -24,7 +24,18 @@ app.listen(port, () => {
 
 async function refresh() {
   console.log('refresh!')
-  let result = await axios.get('https://ak-conf.hypergryph.com/config/prod/announce_meta/IOS/announcement.meta.json')
+  let result
+  try {
+    result = await axios.get('https://ak-conf.hypergryph.com/config/prod/announce_meta/IOS/announcement.meta.json')
+  } catch (e) {
+    console.log(`OOPS! Error occured. Details:`)
+    console.log(e)
+    await tgbotTelegram.sendMessage(
+      process.env.ARK_TGMGR,
+      `未能正确获取公告，请检查系统输出的错误信息。`
+    )
+    return
+  }
   let list = result.data.announceList
   for (let i in list) {
     console.log(`The announcement which is processing is ${list[i].announceId}.`)
@@ -104,7 +115,7 @@ function domToNode(domNode) {
 
 async function scheduleTask() {
   let rule = new schedule.RecurrenceRule()
-  rule.minute = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+  rule.second = [0]
 
   let job = schedule.scheduleJob(rule, async () => {
     await refresh()

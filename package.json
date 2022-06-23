@@ -18,7 +18,13 @@
   },
   "homepage": "https://github.com/Astrian/ArkBulletinBot#readme",
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/koa": "^2.13.4",
+    "@types/koa-route": "^3.2.5",
+    "@types/node-schedule": "^2.1.0",
     "axios": "^0.21.1",
+    "dotenv": "^16.0.1",
     "jquery": "^3.6.0",
     "jsdom": "^16.6.0",
     "koa": "^2.13.1",

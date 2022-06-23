@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "DEBUG=abb:* nodemon app.ts",
-    "start": "node app.js"
+    "start": "tsc --build && NODE_ENV=production pm2 start dist/app.js --name spam-reciver",
+    "stop": "pm2 stop spam-reciver && pm2 delete spam-reciver",
+    "clean": "rm -rf dist"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16",
+    "pm2": "^5.2.0",
     "typescript": "^4.7.4"
   }
 }

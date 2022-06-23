@@ -13,13 +13,11 @@ const print = Debug("abb:app.ts")
 const bot = new Bot(process.env.ARK_BOTTOKEN ?? "")
 
 let rule = new schedule.RecurrenceRule()
-rule.second = [0, 10, 20, 30, 40, 50]
+rule.second = [0, 30]
 
-/* const job = schedule.scheduleJob(rule, () => {
+const job = schedule.scheduleJob(rule, () => {
   refresh()
-}) */
-
-refresh()
+})
 
 async function refresh() {
   print('refresh!')
